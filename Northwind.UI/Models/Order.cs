@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -12,6 +13,7 @@ namespace Northwind.UI.Models
             OrderDetails = new HashSet<OrderDetail>();
         }
 
+        [Key]
         public int OrderId { get; set; }
         public string CustomerId { get; set; }
         public int? EmployeeId { get; set; }
@@ -20,6 +22,8 @@ namespace Northwind.UI.Models
         public DateTime? ShippedDate { get; set; }
         public int? ShipVia { get; set; }
         public decimal? Freight { get; set; }
+        [Required]
+        [MaxLength(100)]
         public string ShipName { get; set; }
         public string ShipAddress { get; set; }
         public string ShipCity { get; set; }
